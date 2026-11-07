@@ -2,6 +2,8 @@
 @import '@fontsource/instrument-serif/400-italic.css';
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/geist-mono';
+@import '@fontsource-variable/readex-pro';
+@import '@fontsource/aref-ruqaa/400.css';
 
 :root {
   --sl-font: 'Inter Variable', sans-serif;
@@ -30,12 +32,12 @@
   --sl-color-accent-high: #233d86;
 }
 header.header { padding:0; }
-.wiki-header { display:flex; align-items:center; justify-content:space-between; height:100%; width:100%; padding-left:16px; }
+.wiki-header { display:flex; align-items:center; justify-content:space-between; height:100%; width:100%; padding-inline-start:16px; }
 .wiki-brand { color:#f4f3f0; font:800 20px 'Archivo Variable', sans-serif; letter-spacing:-.045em; text-decoration:none; white-space:nowrap; }
 .wiki-brand span { color:#b9cbff; font-weight:400; }
-.wiki-header-links { display:flex; align-self:stretch; align-items:stretch; flex-shrink:0; gap:0; border-left:1px solid #30323b; color:#a4a6b2; }
-.wiki-header-links > * { display:inline-flex; align-items:center; justify-content:center; min-height:100%; border:0; border-right:1px solid #30323b; border-radius:0; background:transparent; color:inherit; text-decoration:none; cursor:pointer; transition:background-color .16s ease,color .16s ease; }
-.wiki-header-links > :last-child { border-right:0; }
+.wiki-header-links { display:flex; align-self:stretch; align-items:stretch; flex-shrink:0; gap:0; border-inline-start:1px solid #30323b; color:#a4a6b2; }
+.wiki-header-links > * { display:inline-flex; align-items:center; justify-content:center; min-height:100%; border:0; border-inline-end:1px solid #30323b; border-radius:0; background:transparent; color:inherit; text-decoration:none; cursor:pointer; transition:background-color .16s ease,color .16s ease; }
+.wiki-header-links > :last-child { border-inline-end:0; }
 .wiki-header-links > :not(.wiki-header-cta):hover { background:#1b1c24; color:#f4f3f0; }
 .wiki-header-links > :focus-visible { outline:2px solid #b9cbff; outline-offset:-4px; z-index:1; }
 .wiki-header-link, .wiki-header-cta { padding:0 20px; font:600 10px/1 'Geist Mono Variable', monospace; letter-spacing:.13em; text-transform:uppercase; white-space:nowrap; }
@@ -44,6 +46,7 @@ header.header { padding:0; }
 .wiki-icon-moon { display:none; }
 .wiki-header-links > .wiki-header-cta { min-width:120px; background:#f7f7f5; color:#15161a; }
 .wiki-header-links > .wiki-header-cta:hover { background:#dfe5f6; color:#15161a; }
+.wiki-header-lang { padding:0 10px; }
 .wiki-sidebar-inner { width:100%; padding-bottom:24px; }
 .wiki-search-label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
 #wiki-app-search { width:100%; padding:12px 14px; background:#1a1b22; border:1px solid #30323b; border-radius:6px; color:#f4f3f0; font:14px 'Inter Variable', sans-serif; }
@@ -61,15 +64,15 @@ header.header { padding:0; }
 .wiki-app-group summary span:nth-child(2) { flex:1; }
 .wiki-chevron { color:#a4a6b2; transition:transform .15s; }
 .wiki-app-group[open] .wiki-chevron { transform:rotate(180deg); }
-.wiki-guide-links { padding:2px 0 8px 29px; }
-.wiki-guide-links a { display:block; padding:7px 12px; border-left:1px solid #30323b; font-size:13px; color:#a4a6b2; text-decoration:none; }
+.wiki-guide-links { padding-block:2px 8px; padding-inline:29px 0; }
+.wiki-guide-links a { display:block; padding:7px 12px; border-inline-start:1px solid #30323b; font-size:13px; color:#a4a6b2; text-decoration:none; }
 .wiki-guide-links a[aria-current='page'] { color:#b9cbff; background:#292e3d; }
 .wiki-guide-parent { position:relative; }
-.wiki-guide-parent > a { padding-right:40px; }
-.wiki-guide-group > summary { position:absolute; top:0; right:0; padding:7px 12px; font-size:13px; }
+.wiki-guide-parent > a { padding-inline-end:40px; }
+.wiki-guide-group > summary { position:absolute; top:0; inset-inline-end:0; padding:7px 12px; font-size:13px; }
 .wiki-guide-chevron { color:#a4a6b2; display:inline-block; transition:transform .15s; }
 .wiki-guide-group[open] .wiki-guide-chevron { transform:rotate(180deg); }
-.wiki-guide-children { padding:2px 0 4px 12px; }
+.wiki-guide-children { padding-block:2px 4px; padding-inline:12px 0; }
 .wiki-guide-children a { line-height:1.45; }
 #wiki-no-results { font-size:13px; color:#a4a6b2; padding:10px; }
 .wiki-home { padding:36px 0 70px; }
@@ -96,20 +99,38 @@ header.header { padding:0; }
 .wiki-thirdparty-intro { max-width:670px; color:#a4a6b2; font-size:15px; line-height:1.6; margin:-8px 0 20px; }
 .app-tile-body { display:flex; flex-direction:column; gap:4px; }
 .app-tile strong { font:650 15px/1.25 'Archivo Variable', sans-serif; letter-spacing:-.025em; color:#f4f3f0; display:inline-flex; align-items:center; justify-content:space-between; }
-.app-tile .app-arrow { color:#858895; font-size:13px; line-height:1; transition:transform .18s ease,color .18s ease; margin-left:6px; }
+.app-tile .app-arrow { color:#858895; font-size:13px; line-height:1; transition:transform .18s ease,color .18s ease; margin-inline-start:6px; }
 .sl-markdown-content a.app-tile:hover strong { color:#fff; }
 .sl-markdown-content a.app-tile:hover .app-arrow { color:#b9cbff; transform:translate(2px,-2px); }
 .app-tile .app-caption { font-size:12.5px; line-height:1.45; color:#9ea1ae; margin:0; min-height:36px; }
 .sl-markdown-content img[src^='/assets/apps/'] { width:72px; height:72px; object-fit:contain; }
-@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } }
+/* Letter-spacing, italics and the monospace label font break the joins between Arabic letters. */
+:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-home h1, .wiki-section-heading h2, .app-category-heading h3, .app-category-count, .app-badge-thirdparty, .wiki-header-link, .wiki-home .app-tile-meta, .pagination-links a > span, .pagination-links a .link-title, .wiki-footer-bottom) { letter-spacing:0; }
+/* These small labels are Arabic words, so Readex Pro comes first: a monospace space between Arabic words is too wide. */
+:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-section-heading > span, .app-category-count, .app-badge-thirdparty, .wiki-header-link, .wiki-home .app-tile-meta, .pagination-links a > span, .pagination-links a .link-title, .wiki-footer-bottom) { font-family:'Readex Pro Variable', sans-serif; }
+:lang(ar) .wiki-header-link { font-size:12px; }
+/* Arabic pages: Arabic letters in Readex Pro, Latin ones (app names, code) in the site's own fonts,
+   which have no Arabic; Readex Pro's files only load for Arabic letters. The home headings are Arabic
+   words, so Readex Pro comes first there. The heading's second line is in Ruqaa, Arabic's quick hand,
+   where English has a serif italic. */
+:root:lang(ar) { --sl-font:'Inter Variable', 'Readex Pro Variable', sans-serif; }
+:lang(ar) :is(.wiki-home h1, .wiki-section-heading h2, .app-category-heading h3) { font-family:'Readex Pro Variable', sans-serif; }
+:lang(ar) .wiki-home h1 em { font-family:'Aref Ruqaa', serif; font-style:normal; line-height:inherit; }
+.sl-markdown-content .wiki-home h1:lang(ar) { line-height:1.45; }
+/* On right-to-left pages, code blocks stay left to right, and inline code and bold labels take the direction of their first letter, so @5<45, (load "name") and .dxf keep their order. */
+[dir='rtl'] .expressive-code pre { direction:ltr; }
+[dir='rtl'] .sl-markdown-content :is(:not(pre) > code, strong) { unicode-bidi:plaintext; }
+@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } .wiki-sidebar-lang { display:none; } }
 @media (max-width:49.99rem) {
-  :root[data-has-sidebar] header.header { padding:0 0 0 40px; }
-  .wiki-header { padding:0 0 0 12px; }
+  :root[data-has-sidebar] header.header { padding:0; padding-inline-start:40px; }
+  .wiki-header { padding:0; padding-inline-start:12px; }
   .wiki-header-link, .wiki-header-cta { padding:0 13px; }
   .sl-menu-button { top:0; inset-inline-start:0; inset-inline-end:auto; width:40px; height:var(--sl-nav-height); border:0; border-radius:0; background:var(--sl-color-bg-nav); box-shadow:none; color:#a4a6b2; }
   .sl-menu-button:hover { background:#1b1c24; color:#f4f3f0; }
   :root[data-theme='light'] .sl-menu-button { background:#fff; color:#545b69; }
   :root[data-theme='light'] .sl-menu-button:hover { background:#f0f2f5; color:#20232b; }
+  .wiki-header-links > .wiki-header-lang { display:none; }
+  .wiki-sidebar-lang { margin-top:24px; }
   .wiki-home { padding-top:12px; }
   .wiki-section-heading { margin-top:65px; }
   .app-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
@@ -268,15 +289,15 @@ body:hover ::-webkit-scrollbar-thumb,
 :root[data-theme='light'] .sl-markdown-content .wiki-home a.app-tile:hover .app-tile-name { color:#20232b; }
 :root[data-theme='light'] .wiki-home .app-tile .app-caption { color:#606879; }
 @media (min-width:84rem) {
-  .wiki-home .app-grid .app-tile:not(:nth-child(4n + 1)) { border-left:0; }
+  .wiki-home .app-grid .app-tile:not(:nth-child(4n + 1)) { border-inline-start:0; }
 }
 @media (min-width:70rem) and (max-width:83.99rem) {
   .wiki-home .app-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .wiki-home .app-grid .app-tile:not(:nth-child(3n + 1)) { border-left:0; }
+  .wiki-home .app-grid .app-tile:not(:nth-child(3n + 1)) { border-inline-start:0; }
 }
 @media (min-width:42.01rem) and (max-width:69.99rem) {
   .wiki-home .app-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .wiki-home .app-grid .app-tile:nth-child(even) { border-left:0; }
+  .wiki-home .app-grid .app-tile:nth-child(even) { border-inline-start:0; }
 }
 @media (max-width:42rem) {
   .wiki-home .app-grid { grid-template-columns:minmax(0,1fr); }
@@ -379,9 +400,9 @@ body:hover ::-webkit-scrollbar-thumb,
 .wiki-footer-brand { padding:25px 27px; }
 .wiki-footer-brand img { display:block; width:34px; height:34px; filter:brightness(0) invert(1); }
 .wiki-footer-brand p { max-width:270px; margin:13px 0 0; font-size:14px; line-height:1.55; }
-.wiki-footer-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-left:1px solid #30323b; }
-.wiki-footer-links a { display:flex; align-items:center; min-height:58px; padding:12px 20px; border-left:1px solid #30323b; border-bottom:1px solid #30323b; font:550 14px 'Archivo Variable',sans-serif; }
-.wiki-footer-links a:nth-child(odd) { border-left:0; }
+.wiki-footer-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-inline-start:1px solid #30323b; }
+.wiki-footer-links a { display:flex; align-items:center; min-height:58px; padding:12px 20px; border-inline-start:1px solid #30323b; border-bottom:1px solid #30323b; font:550 14px 'Archivo Variable',sans-serif; }
+.wiki-footer-links a:nth-child(odd) { border-inline-start:0; }
 .wiki-footer-links a:nth-last-child(-n+2) { border-bottom:0; }
 .wiki-footer-links a:hover { background:#191b21; color:#f4f3f0; }
 .wiki-footer-bottom { display:flex; justify-content:space-between; gap:20px; padding:13px 20px; border-top:1px solid #30323b; color:#858895; font:600 10px/1.4 'Geist Mono Variable',monospace; letter-spacing:.12em; }
@@ -399,8 +420,10 @@ body:hover ::-webkit-scrollbar-thumb,
 :root[data-theme='light'] .wiki-footer-bottom { border-color:#dce0e6; }
 @media (max-width:42rem) {
   .wiki-footer-main { grid-template-columns:minmax(0,1fr); }
-  .wiki-footer-links { border-left:0; border-top:1px solid #30323b; }
+  .wiki-footer-links { border-inline-start:0; border-top:1px solid #30323b; }
   .wiki-footer-brand { padding:21px; }
   .wiki-footer-bottom { flex-wrap:wrap; padding:13px 16px; }
 }
 
+/* The card's colour bar grows from the reading side. */
+[dir='rtl'] .sl-markdown-content .wiki-home a.app-tile::before { transform-origin:right; }
