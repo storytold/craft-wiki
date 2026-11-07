@@ -33,7 +33,7 @@ On Wayland, under KDE Plasma 6.3 or later and under GNOME, VectorCraft can't get
 
 If you plug the pen in later, set **Edit › Preferences › Performance › Linux Display Server** to **X11 (XWayland)** and restart VectorCraft.
 
-## A menu item is greyed out
+## A menu item is grayed out
 
 Some items are listed but not built yet. Others only work when something is selected, or when the right kind of object is selected. If you can't find a command at all, choose **Help › Search Commands**.
 

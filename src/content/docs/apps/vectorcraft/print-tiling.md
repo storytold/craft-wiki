@@ -5,7 +5,7 @@ sidebar:
   order: 31
 ---
 
-Tiled printing spreads a drawing that is bigger than your paper across several sheets of A4, Letter or any other size. VectorCraft divides the drawing into numbered tiles at the scale you choose. An overlap repeats a strip of the drawing on neighbouring sheets, so you can line them up when you stick them together.
+Tiled printing spreads a drawing that is bigger than your paper across several sheets of A4, Letter or any other size. VectorCraft divides the drawing into numbered tiles at the scale you choose. An overlap repeats a strip of the drawing on neighboring sheets, so you can line them up when you stick them together.
 
 ## Print a poster on several sheets
 
@@ -45,7 +45,7 @@ Changing the paper, scale, margin, overlap or grid position can change the numbe
 
 ## Put the sheets together
 
-Lay the sheets out in order. Line up the repeated artwork in the overlaps, trim the unprinted edges if you need to, and tape or glue the sheets together. Print two neighbouring tiles first to check the scale and overlap before you print a large job.
+Lay the sheets out in order. Line up the repeated artwork in the overlaps, trim the unprinted edges if you need to, and tape or glue the sheets together. Print two neighboring tiles first to check the scale and overlap before you print a large job.
 
 ## If something goes wrong
 

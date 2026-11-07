@@ -10,7 +10,7 @@ sidebar:
 VectorCraft is a vector illustration app. If you have used a professional vector editor before, it will feel familiar: the Pen, Direct Selection, Pathfinder, Smart Guides, and the Appearance, Swatches and Layers panels are all there, in the places and on the shortcuts you'd expect. It runs on Windows, macOS, Linux and FreeBSD, and in a web browser. It is free and open source (MIT or Apache-2.0), and made by the ArtCraft team.
 
 :::note[Alpha]
-VectorCraft is in alpha. Everyday illustration works, but some tools don't yet behave exactly as they do in other apps, and some menu items are listed but greyed out because they aren't built yet. Keep a copy of important files, and tell us what breaks on [GitHub](https://github.com/storytold/vectorcraft/issues) or [Discord](https://discord.gg/artcraft).
+VectorCraft is in alpha. Everyday illustration works, but some tools don't yet behave exactly as they do in other apps, and some menu items are listed but grayed out because they aren't built yet. Keep a copy of important files, and tell us what breaks on [GitHub](https://github.com/storytold/vectorcraft/issues) or [Discord](https://discord.gg/artcraft).
 :::
 
 ![VectorCraft editing a synthwave poster called Neon Drive. The title text is selected, the Appearance panel shows its Outer Glow effect, and the Properties panel on the right shows its position, font and paragraph settings](/assets/uploads/vectorcraft/hero.webp)
@@ -41,7 +41,7 @@ Your files stay on your computer. VectorCraft doesn't need an account.
 
 ## Guides
 
-- [Getting started](/apps/vectorcraft/getting-started/): draw, colour and save your first illustration.
+- [Getting started](/apps/vectorcraft/getting-started/): draw, color and save your first illustration.
 - [Install and update](/apps/vectorcraft/install-update/): download VectorCraft for your system.
 - [Workflows](/apps/vectorcraft/workflows/): paths, live effects, type, artboards, tracing and exporting.
 - [AI agents](/apps/vectorcraft/ai-agents/): let an AI assistant draw and edit in VectorCraft.
