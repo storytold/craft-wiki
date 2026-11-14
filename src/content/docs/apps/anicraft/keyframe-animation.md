@@ -15,7 +15,6 @@ In-betweening is seen as lower-skilled work. Often, in-betweening tasks were [of
 
 Sometimes this approach to animation is called "pose-to-pose."
 
-
 # Keyframes
 
 Computer animation has borrowed these concepts from classical animation. 
@@ -92,3 +91,5 @@ Try experimenting with the Symbol Instance's position, rotation, scale, and colo
 # Deleting Keyframes
 
 To delete a Keyframe, select it and press SHIFT + F6.
+
+Next: [Frame-by-frame Animation](frame-by-frame-animation)
