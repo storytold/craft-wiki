@@ -105,6 +105,19 @@ wordcraft --control 7981
 
 Then use `wordcraft-cli mcp --connect 127.0.0.1:7981` as the assistant's command. In the app, the assistant can also click, press keys and take screenshots. The folder limits above don't apply here, so it can open and save anywhere you can.
 
+## Use it in the web version
+
+The web version can't run `wordcraft-cli`, so the setups above don't reach it. Since version 0.17, it gives the page a JavaScript API instead, `window.wordcraft`, with the same commands. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it:
+
+```js
+await wordcraft.commands();                                     // every command WordCraft has
+await wordcraft.execute("select.text", { text: "Membership" });
+await wordcraft.execute("format.bold", {});
+const shot = await wordcraft.screenshot();                      // shot.data is a PNG, as base64
+```
+
+`docInspect()` describes the document's structure and `uiInspect()` the window. WordCraft answers each call on its next frame, so keep its tab visible while the assistant works: in a hidden tab, calls can wait until they fail after 30 seconds. Any script running on the page can use `window.wordcraft`, the same as the page's own scripts.
+
 ## Tell its edits apart from yours
 
 Tracked changes and comments carry the author's name. Give the assistant its own name, so reviewers can see which edits it made, by adding `--author`:
