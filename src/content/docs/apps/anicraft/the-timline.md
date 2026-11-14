@@ -71,3 +71,5 @@ We can also see the current frame number next to the framerate at the top of the
 We can click and drag the Playhead to move to a different frame. If we click and drag the Playhead back and forth, we can preview our animation. This is called _scrubbing_ the Timeline.
 
 We can step through our animation frame-by-frame by pressing the < or > key.
+
+Next: [Keyframe Animation](keyframe-animation)
