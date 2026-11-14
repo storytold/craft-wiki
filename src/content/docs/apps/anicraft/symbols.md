@@ -62,3 +62,5 @@ We can double-click a Symbol to go "inside" it. The breadcrumb trail at the top 
 ![](/assets/uploads/changes.png)
 
 If we make changes inside our Symbol, that change happens to all of the other Instances of the Symbol.
+
+Next: [The Timeline](the-timeline)
