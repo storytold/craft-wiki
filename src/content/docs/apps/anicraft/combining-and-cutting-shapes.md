@@ -7,8 +7,8 @@ description: Learn how AniCraft uses automatic boolean operations to sculpt shap
 
 AniCraft performs automatic boolean operations based on certain rules. 
 
-
 # **Rule #1: Same colours combine.**
+
 ![](/assets/uploads/combine1.png)
 
 ![](/assets/uploads/combine2.png)
@@ -27,7 +27,6 @@ When a fill shape with one colour overlaps a fill shape with a different colour,
 
 # Rule #3: Strokes cut fills.
 
-
 ![](/assets/uploads/cutShapes1.png)
 
 ![](/assets/uploads/cutShapes2.png)
@@ -38,13 +37,12 @@ A stroke line will carve, or cut, a fill into separate pieces.
 
 The first two rules hold true with strokes: same-coloured strokes combine, while differently-coloured strokes cut each other.
 
-
-
 # Protecting Shapes
-
 
 Sometimes you want your artwork to be "protected" so that your shapes don't interfere with each other. There are several different ways to accomplish this:
 
 - Drawing Objects
 - Groups
 - Symbols
+
+Next: [Symbols](symbols)
