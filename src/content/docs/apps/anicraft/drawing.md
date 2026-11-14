@@ -6,5 +6,5 @@ sidebar:
   order: 0
 ---
 
-What is vector art?
+[What is vector art?](what-is-vector-art)
 Stroke vs. Fill
