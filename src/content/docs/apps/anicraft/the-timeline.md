@@ -1,5 +1,5 @@
 ---
-title: The Timline
+title: The Timeline
 description: Learn the basics of the timeline
 ---
 
