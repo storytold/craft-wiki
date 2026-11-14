@@ -7,4 +7,4 @@ sidebar:
 ---
 
 [What is vector art?](what-is-vector-art)
-Stroke vs. Fill
+[Stroke vs. Fill](stroke-vs-fill)
