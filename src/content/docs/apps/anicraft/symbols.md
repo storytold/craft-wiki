@@ -33,7 +33,9 @@ AniCraft will ask you to type a name for your Symbol, choose which kind of Symbo
 
 ![](/assets/uploads/nameSymbol.png)
 
-Now, when our Symbol overlaps Shapes of the same or different colours, it doesn't combine with them or subtract from them.
+Now, when our Symbol overlaps Shapes of the same or different colours, it doesn't [combine with them or subtract from them](combining-and-cutting-shapes).
+
+![](/assets/uploads/noAutoBoolean1.png)
 
 ![](/assets/uploads/noAutoBoolean2.png)
 
@@ -45,16 +47,18 @@ You can click and drag multiple copies of your Symbol from the Library to the St
 
 ![](/assets/uploads/instances1.png)
 
-Each one of these is called an Instance of our Symbol.
+Each one of these is called an _Instance_ of our Symbol.
 
 ![](/assets/uploads/instances2.png)
 
 Each Symbol Instance has its own Transform. So we can change the position, rotation, scale, and colour effect of each Symbol separately.
 
+# Modifying a Symbol
+
 ![](/assets/uploads/breadcrumbs.png)
 
-We can double-click a Symbol to go inside it. The breadcrumb trail at the top of the Stage shows us that we are now working within the Symbol.
+We can double-click a Symbol to go "inside" it. The breadcrumb trail at the top of the Stage shows us that we are now working within the Symbol.
 
 ![](/assets/uploads/changes.png)
 
-If we make changes inside our Symbol, that change happens to all of the other Instances on the Stage.
+If we make changes inside our Symbol, that change happens to all of the other Instances of the Symbol.
