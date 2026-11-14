@@ -10,3 +10,5 @@ sidebar:
 - [Stroke vs. Fill](stroke-vs-fill)
 - [Combining and Cutting Shapes](combining-and-cutting-shapes)
 - [Symbols](symbols)
+
+Next: [Animating](animating)
