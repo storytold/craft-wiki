@@ -82,7 +82,7 @@ Now, the first Keyframe changes colour, and we see an arrow extend all the way t
 
 If we scrub the Timeline by clicking and dragging the Playhead, or if we play our animation by pressing Enter or clicking the Play button, we see the red box Symbol Instance move between the first keyframe position and the next.
 
-![](/assets/uploads/keyframeSmooth.gif)
+![](/assets/uploads/keyframeSmooth2.gif)
 
 Hooray! We've offshored our in-betweening work to AniCraft!
 
