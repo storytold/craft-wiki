@@ -74,7 +74,7 @@ The assistant can then only open files inside the read folder, and only save ins
 
 The web version can't run `pdfcraft-cli`, so the setups above don't reach it. Since version 0.20, it can give the page a JavaScript API instead, `window.pdfcraft`. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it.
 
-It's off unless you ask for it. Add `?control` to the address of the page, for example `https://example.com/pdfcraft/index.html?control`. PdfCraft then keeps a description of what's on screen so the assistant can read it, which is why it isn't on by default.
+It's off unless you ask for it. Add `?control` to the address of the page, for example `https://example.com/pdfcraft/index.html?control`. If the address already has a `?` in it, add `&control` instead. PdfCraft then keeps a description of what's on screen so the assistant can read it, which is why it isn't on by default.
 
 ```js
 await pdfcraft.commands();                 // every command PdfCraft has
