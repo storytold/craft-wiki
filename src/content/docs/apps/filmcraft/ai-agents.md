@@ -49,6 +49,27 @@ The assistant can also drive the FilmCraft window you are looking at, and take s
 
 FilmCraft only listens on your own computer, and only with a valid token. Make a new token for each session, and don't save it in shared files.
 
+## Use it in the web version
+
+The web version can't run `filmcraft-cli`, so the setups above don't reach it. Since version 0.19, it gives the page a JavaScript API instead, `window.filmcraft`, with the same commands. An assistant that can run JavaScript in your browser tab can use it, for example one in a browser extension that runs its script in the page itself. There's nothing to switch on.
+
+```js
+await filmcraft.commands(); // every command FilmCraft has
+await filmcraft.request("ui.playback", { action: "play" });
+const shot = await filmcraft.screenshot(); // the canvas as a PNG, as base64
+```
+
+`await filmcraft.inspect()` describes the window.
+
+A few things to know:
+
+- **Wait for it to load.** `window.filmcraft` appears a moment before FilmCraft is ready, and a call made then fails with "FilmCraft is not running yet". Wait until `window.filmcraftLoad.readyMs` has a value before calling anything.
+- **Where it lives.** `window.filmcraft` belongs to the page that runs FilmCraft. If FilmCraft is in a frame, run the script in that frame.
+- **Opening files.** `await filmcraft.importFiles(files)` imports `File` objects: one `File`, a `FileList` or an array of them. `await filmcraft.openProject(file)` opens a `.fcproj` file.
+- **Reading results.** Files FilmCraft writes, such as an export, are kept in the page. `filmcraft.files()` lists them, with their sizes, and `await filmcraft.readFile("/exports/out.mp4")` returns a file's bytes.
+- **Keep the tab visible.** FilmCraft answers each call on its next frame, and a browser can pause frames in a hidden tab. A call that isn't answered within 30 seconds fails, but FilmCraft may still run it later.
+- **Any script can use it.** Any script running on the page can use `window.filmcraft`, the same as the page's own scripts.
+
 ## Good to know
 
 - Edits made by an assistant can be undone like your own.
