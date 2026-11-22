@@ -109,3 +109,21 @@ To watch the agent work in the app instead:
 2. Point your MCP client at it, with `"args": ["mcp", "--connect", "127.0.0.1:7979"]`.
 
 The control port only listens on your own computer. The agent can then also take screenshots and click in the app.
+
+### Use it in the web version
+
+The web version can't run `cadcraft-cli`, so the setups above don't reach it. Since version 0.19, it gives the page a JavaScript API instead, `window.cadcraft`, with the same commands. An assistant that can run JavaScript in your browser tab can use it, for example one in a browser extension that runs its script in the page itself. There's nothing to switch on: the API is there as soon as CADCraft has started.
+
+```js
+await cadcraft.commands(); // every command CADCraft has
+const drawing = await cadcraft.docInspect(); // counts, extents, layers, styles and the selection
+const shot = await cadcraft.screenshot(); // the canvas as a PNG, as base64
+```
+
+A few things to know:
+
+- **Wait for it to load.** Until CADCraft has started, `window.cadcraft` doesn't exist. Wait until it does before calling anything.
+- **Where it lives.** `window.cadcraft` belongs to the page that runs CADCraft. If CADCraft is in a frame, run the script in that frame.
+- **Files.** The API doesn't open drawings or hand over what CADCraft saves. A page that frames CADCraft does that with messages.
+- **Keep the tab visible.** CADCraft answers each call on its next frame, and a browser can pause frames in a hidden tab. A call that isn't answered within 30 seconds fails, and CADCraft drops it unrun if it hadn't started it.
+- **Any script can use it.** Any script running on the page can use `window.cadcraft`, the same as the page's own scripts.
