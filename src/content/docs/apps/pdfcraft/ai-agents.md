@@ -70,6 +70,27 @@ pdfcraft-cli mcp --automation-read-root ~/Documents/pdfs --automation-write-root
 
 The assistant can then only open files inside the read folder, and only save inside the write folder. These limits cover what the assistant does through `pdfcraft-cli`. They don't apply to the PdfCraft app itself.
 
+## Use it in the web version
+
+The web version can't run `pdfcraft-cli`, so the setups above don't reach it. Since version 0.20, it can give the page a JavaScript API instead, `window.pdfcraft`. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it.
+
+It's off unless you ask for it. Add `?control` to the address of the page, for example `https://example.com/pdfcraft/index.html?control`. If the address already has a `?` in it, add `&control` instead. PdfCraft then keeps a description of what's on screen so the assistant can read it, which is why it isn't on by default.
+
+```js
+await pdfcraft.commands();                 // every command PdfCraft has
+const state = await pdfcraft.docInspect(); // open documents, the page, zoom and open panels
+const shot = await pdfcraft.screenshot();  // shot.data is a PNG, as base64
+```
+
+To run a command, pass one of the ids from `commands()` to `execute`, along with its settings if it has any: `await pdfcraft.execute("<command id>", {})`. `uiInspect()` describes the window itself.
+
+A few things to know:
+
+- **Wait for it to load.** Until PdfCraft has started, `window.pdfcraft` is just the page's canvas. Wait until `typeof pdfcraft.request === "function"` before calling anything.
+- **Opening a file.** The web version has no file system to open from, so `ui.open` answers with an error. Drop the PDF onto the page instead.
+- **Keep the tab visible.** PdfCraft answers each call on its next frame. In a hidden tab, calls can wait until they fail after 30 seconds, and PdfCraft may still run a call that timed out.
+- **Any script can use it.** Any script running on the page can use `window.pdfcraft`, the same as the page's own scripts. Add `?control` only for pages you trust.
+
 ## From the command line
 
 `pdfcraft-cli` also works on its own, without an assistant:
