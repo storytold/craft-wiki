@@ -21,7 +21,13 @@ When two fill shapes with the same colour overlap, they combine to form one shap
 
 ![](/assets/uploads/subtract2.png)
 
+![](/assets/uploads/subtract2.5.png)
+
+Deselect the red square by clicking anywhere on the Stage. That triggers the boolean operation.
+
 ![](/assets/uploads/subtract3.png)
+
+Then, click and drag the red square away.
 
 When a fill shape with one colour overlaps a fill shape with a different colour, it "takes a bite" out of the other shape.
 
