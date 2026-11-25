@@ -222,6 +222,26 @@ The server offers five ready-made prompts that your assistant may show as comman
 | **trace-and-style** | Trace an image with Image Trace, expand the result, add a live effect and recolor it |
 | **export-set** | Export every artboard in several formats at once |
 
+## Use it in the web version
+
+The web version can't run `vectorcraft-cli`, so the setups above don't reach it. Since version 0.14, it gives the page a JavaScript API instead, `window.vectorcraft`, with the same commands. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it. There's nothing to switch on: the API is there as soon as VectorCraft has started.
+
+```js
+await vectorcraft.commands();                                                     // every command VectorCraft has
+await vectorcraft.execute("shape.rectangle", { x: 0, y: 0, width: 100, height: 50 });
+const shot = await vectorcraft.screenshot();                                      // shot.data is a PNG, as base64
+```
+
+`docInspect()` describes the document and `uiInspect()` the window.
+
+A few things to know:
+
+- **Wait for it to load.** Until VectorCraft has started, `window.vectorcraft` doesn't exist. Wait until it does before calling anything.
+- **Opening a file.** Pass the file's name and its bytes, as a `Uint8Array`: `await vectorcraft.openFile("logo.svg", bytes)`. VectorCraft opens it as if you had dropped it on the page.
+- **Saving.** Saves and exports download as usual. Call `vectorcraft.captureDownloads(true)` first to keep them in the page instead. `vectorcraft.files()` then lists them, with their sizes, and `await vectorcraft.readFile("logo.png")` returns a file's bytes. The page keeps the 16 most recent.
+- **Keep the tab visible.** VectorCraft answers each call on its next frame. In a hidden tab, calls can wait until they fail after 30 seconds.
+- **Any script can use it.** Any script running on the page can use `window.vectorcraft`, the same as the page's own scripts.
+
 ## If the assistant can't connect
 
 If the assistant says a tool needs the desktop app, the MCP server is working without a window. Start VectorCraft with `--control 7979`, wait for the window, then restart the assistant.
