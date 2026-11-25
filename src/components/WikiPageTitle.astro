@@ -1,10 +1,15 @@
 ---
 import Default from '@astrojs/starlight/components/PageTitle.astro';
+import { allApps } from '../data/apps.mjs';
 import { appVisuals } from '../data/appVisuals.mjs';
 import WikiAppName from './WikiAppName.astro';
 const slug = Astro.url.pathname.match(/^\/apps\/([^/]+)(?:\/|$)/)?.[1];
 const app = slug && appVisuals[slug];
-const title = Astro.locals.starlightRoute.entry.data.title;
+// Search results show only a page's title, and every app has a "Troubleshooting" page, so the
+// result title names the app too: "CADCraft › Troubleshooting".
+const appName = allApps.find(([s]) => s === slug)?.[1];
+const { title } = Astro.locals.starlightRoute.entry.data;
+const searchTitle = appName && appName !== title ? `${appName} › ${title}` : undefined;
 ---
 {Astro.url.pathname !== '/' && (app
   ? <div class="wiki-page-heading">
@@ -12,6 +17,7 @@ const title = Astro.locals.starlightRoute.entry.data.title;
       {title === app.name ? <h1 id="_top" class="wiki-app-title"><WikiAppName slug={slug} name={title} /></h1> : <Default />}
     </div>
   : <Default />)}
+{searchTitle && <span hidden data-pagefind-meta={`title:${searchTitle}`}></span>}
 
 <style>
   .wiki-page-heading { display:flex; align-items:center; gap:18px; min-width:0; }

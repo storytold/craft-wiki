@@ -1,6 +1,12 @@
+---
+import config from 'virtual:starlight/user-config';
+import Search from 'virtual:starlight/components/Search';
+---
 <header class="wiki-header" transition:persist="wiki-header">
   <a class="wiki-brand" href="/">Craft <span>Wiki</span></a>
   <nav aria-label="Main navigation" class="wiki-header-links">
+    {/* Replacing Starlight's header dropped its search of the Pagefind index the build makes; keep it, as the strip's first cell. */}
+    {config.pagefind && <div class="wiki-header-search"><Search /></div>}
     <a class="wiki-header-link wiki-header-browse" href="/#apps"><span>Browse apps</span></a>
     <a class="wiki-header-icon wiki-header-discord" href="https://discord.gg/artcraft" aria-label="Join the ArtCraft Discord" title="Join the ArtCraft Discord">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
@@ -20,6 +26,39 @@
     <a class="wiki-header-cta" href="https://getartcraft.com">ArtCraft</a>
   </nav>
 </header>
+<script>
+  // A search result's link carries the searched words, and the page it opens marks them with
+  // Pagefind's own highlighter, which the build puts next to the index.
+  const param = 'pagefind-highlight';
+  // Stamp rendered URLs, not click events, so new-tab and context-menu navigation also
+  // carry the terms. Observe only child changes to avoid reacting to our own href updates.
+  const observedSearchRoots = new WeakSet<Element>();
+  const connectSearchHighlights = () => {
+    const root = document.querySelector('#starlight__search');
+    if (!root || observedSearchRoots.has(root)) return;
+    observedSearchRoots.add(root);
+    const updateLinks = () => {
+      const words = root.querySelector<HTMLInputElement>('input')?.value.trim().split(/\s+/).filter(Boolean) ?? [];
+      for (const link of root.querySelectorAll<HTMLAnchorElement>('a.pagefind-ui__result-link[href]')) {
+        const url = new URL(link.href);
+        url.searchParams.delete(param);
+        for (const word of words) url.searchParams.append(param, word);
+        if (link.href !== url.href) link.href = url.href;
+      }
+    };
+    root.addEventListener('input', updateLinks);
+    new MutationObserver(updateLinks).observe(root, { childList: true, subtree: true });
+    updateLinks();
+  };
+  connectSearchHighlights();
+  document.addEventListener('astro:page-load', connectSearchHighlights);
+  // The header persists across page loads, so mark each page as the router shows it.
+  document.addEventListener('astro:page-load', () => {
+    if (!new URLSearchParams(location.search).has(param)) return;
+    const highlighter = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/pagefind-highlight.js`;
+    import(/* @vite-ignore */ highlighter).then(({ default: PagefindHighlight }) => new PagefindHighlight({ highlightParam: param, addStyles: false }));
+  });
+</script>
 
 <script>
   const themeToggle = document.querySelector('.wiki-theme-toggle');
