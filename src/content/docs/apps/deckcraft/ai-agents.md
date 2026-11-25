@@ -87,6 +87,25 @@ The assistant can then only open files inside the read folder, and only save ins
 These folder limits only work in the background. They can't be used with `--connect`, and an assistant connected to the running app can open and save anywhere you can.
 :::
 
+## Use it in the web version
+
+The web version can't run `deckcraft-cli`, so the setups above don't reach it. Since version 0.17, it gives the page a JavaScript API instead, `window.deckcraft`, with the same commands. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it. There's nothing to switch on: the API is there as soon as DeckCraft has started.
+
+```js
+const deck = await deckcraft.docInspect();   // a summary of the open presentation
+await deckcraft.execute("shape.insert", { preset: "roundRect", rect: [100, 100, 240, 120], text: "Hello" });
+const shot = await deckcraft.screenshot();   // shot.data is a PNG, as base64
+```
+
+`deckcraft.commands()` lists every command, and `uiInspect()` describes the window.
+
+A few things to know:
+
+- **Wait for it to load.** Until DeckCraft has started, `window.deckcraft` doesn't exist. Wait until it does before calling anything.
+- **Files.** The API doesn't open presentations or hand over what DeckCraft saves. A page that frames DeckCraft does that with messages.
+- **Keep the tab visible.** DeckCraft answers each call on its next frame. In a hidden tab, calls can wait until they fail after 30 seconds.
+- **Any script can use it.** Any script running on the page can use `window.deckcraft`, the same as the page's own scripts.
+
 ## From the command line
 
 `deckcraft-cli` also works on its own, without an assistant:
