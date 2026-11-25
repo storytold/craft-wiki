@@ -70,6 +70,25 @@ Then use `gridcraft-cli mcp --connect 7979` as the assistant's command. It finds
 
 **Automate › Agent Control** in the app shows these commands. **Automate › Action Journal** lists every command run in the session, by you or the assistant.
 
+## Use it in the web version
+
+The web version can't run `gridcraft-cli`, so the setups above don't reach it. Since version 0.18, it gives the page a JavaScript API instead, `window.gridcraft`, with the same commands. An assistant that can run JavaScript in your browser tab, such as one in a browser extension, can use it. There's nothing to switch on: the API is there as soon as GridCraft has started.
+
+```js
+const book = await gridcraft.docInspect();   // sheets, used ranges, tables, charts, names and the selection
+await gridcraft.execute("cell.set", { cell: "A1", input: "Total" });
+const shot = await gridcraft.screenshot();   // shot.data is a PNG, as base64
+```
+
+`gridcraft.commands()` lists every command, and `uiInspect()` describes the window.
+
+A few things to know:
+
+- **Wait for it to load.** Until GridCraft has started, `window.gridcraft` doesn't exist. Wait until it does before calling anything.
+- **Files.** The API doesn't open workbooks or hand over what GridCraft saves. A page that frames GridCraft does that with messages.
+- **Keep the tab visible.** GridCraft answers each call on its next frame. In a hidden tab, calls can wait until they fail after 30 seconds, and GridCraft may still run a call that timed out, so check before you retry it.
+- **Any script can use it.** Any script running on the page can use `window.gridcraft`, the same as the page's own scripts.
+
 ## From the command line
 
 `gridcraft-cli` also works on its own, without an assistant:
