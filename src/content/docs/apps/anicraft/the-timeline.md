@@ -43,20 +43,20 @@ These Frames determine the length of our animation: it's 12 frames long. So at 2
 
 If we decided that we have too many frames, we can click anywhere in that Frame range and press SHIFT + F5 to delete Frames.
 
-![](/assets/uploads/deleteFrames1.gif)
+![](/assets/uploads/deleteFrames1_corrected.gif)
 
 We can also click and drag to select a range of Frames, and press SHIFT + F5 to delete them.
 
-![](/assets/uploads/deleteFrames2.gif)
+![](/assets/uploads/deleteFrames2_corrected.gif)
 
-## Playback
+# Playback
 
 To play our animation, either:
 
 - press the Enter key
 - click the Play button at the top of the Timeline
 
-![](/assets/uploads/playback.gif)
+![](/assets/uploads/playback_corrected.gif)
 
 We'll see the red-box-and-vertical-line cycle through the animation on a loop. But we don't see anything actually animating yet, because we haven't given AniCraft anything to animate!
 
@@ -66,7 +66,7 @@ That red-box-and-vertical-line is called the Playhead. It shows us which frame i
 
 We can also see the current frame number next to the framerate at the top of the Timeline.
 
-![](/assets/uploads/currentFrame.png)
+![](/assets/uploads/currentFrame_corrected.png)
 
 We can click and drag the Playhead to move to a different frame. If we click and drag the Playhead back and forth, we can preview our animation. This is called _scrubbing_ the Timeline.
 
